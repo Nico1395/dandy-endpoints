@@ -13,7 +13,7 @@
     <Authors>Nicolai Wolf</Authors>
     <Description>A tiny framework for encapsulating ASP.NET Core endpoints into separate classes and registering it automatically, to allow a more seamless implementation of vertical slicing.</Description>
     <RepositoryUrl>https://github.com/Nico1395/dandy-endpoints</RepositoryUrl>
-    <PackageTags>Blazor;Routing</PackageTags>
+    <PackageTags>Endpoints;HTTP</PackageTags>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <IncludeSymbols>true</IncludeSymbols>
     <SymbolPackageFormat>snupkg</SymbolPackageFormat>

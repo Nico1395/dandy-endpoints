@@ -12,7 +12,7 @@ The example below features my own version of the classic [MediatR](https://githu
 ```cs
 internal static class GetTeamById
 {
-    private sealed class Endpoint : IEndpoint
+    private sealed class Endpoint : IEndpoint            // <- Implements DandyEndpoints' 'IEnpoint' interface
     {
         public void Map(IEndpointRouteBuilder app)
         {
@@ -39,8 +39,26 @@ internal static class GetTeamById
 ```
 
 # How is DandyEndpoints being set up?
-Exactly like you would expect from any .NET Core framework. Have a quick look:
+Exactly like you would expect from any framework for an ASP.NET Core webapi. Have a quick look at this basic minimal setup:
 
 ```cs
+var builder = WebApplication.CreateBuilder(args);
 
+builder.Services.AddOpenApi();
+builder.Services.AddDandyEndpoints(cfg =>                    // <- Adds the scanning mechanism and registeres implementations of 'IEndpoint' from the assemblies given below
+{
+    cfg.ScanInAssemblies([Assembly.Load("MyWebApi")]);
+});
+
+var app = builder.Build();
+if (app.Environment.IsDevelopment())
+{
+    app.MapOpenApi();
+}
+
+app.UseHttpsRedirection();
+
+app.MapDandyEndpoints();                // <- Required, since the endpoints still need to be mapped. Also remember to place this call in the correct order (so after your middleware and before 'app.Run()').
+
+app.Run();
 ```

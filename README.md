@@ -7,7 +7,7 @@ I like to encapsulate endpoints and their related components in one static class
 I however quite like the pattern of creating a dedicated class for every endpoint and adding it as a private subclass to my static 'use case class' like shown below and since I want to use that pattern in more than just one project I want to create a small package that I am maintaining primarily for myself. If your like it, cool! If you dont, dont worry thats fine as well.
 
 # What pattern does Andy aim for?
-The example below features my own version of the classic [MediatR](https://github.com/LuckyPennySoftware/MediatR) package, [OpenMediator](https://github.com/Nico1395/open-messenger) which also only really exists because I want to use it across a few of my projects.
+The example below features my own version of the classic [MediatR](https://github.com/LuckyPennySoftware/MediatR) package, [OpenMediator](https://github.com/Nico1395/open-mediator.git) which also only really exists because I want to use it across a few of my projects.
 
 ```cs
 internal static class GetTeamById
